@@ -1,0 +1,19 @@
+{
+    "colunas": [{
+        "filmes": {
+            "cards": {}
+        },
+        "programacao": {
+            "cards": {}
+        },
+        "series": {
+            "cards": {}
+        },
+        "entregas": {
+            "cards": {}
+        },
+        "familia": {
+            "cards": {}
+        }
+    }]
+}

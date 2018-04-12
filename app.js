@@ -2,7 +2,7 @@
 
 const puppeteer = require('puppeteer');
 
-var gustavo = {
+var obj = {
     colunas: [{
         filmes: {
             cards: {}
@@ -33,13 +33,18 @@ var gustavo = {
     //Card Vingadores
     await page.click('#board > div:nth-child(1) > div > div.list-cards.u-fancy-scrollbar.u-clearfix.js-list-cards > a:nth-child(1) > div.list-card-details');
 
-    const textContent = await page.evaluate(() => document.querySelector('#classic > div.window-overlay > div > div > div > div.window-main-col > div.checklist-list.window-module.js-checklist-list.js-no-higher-edits > div > div.checklist-items-list.js-checklist-items-list.js-no-higher-edits').textContent);
+    await page.addScriptTag({
+        content: `
+        function waifu(){
+            return $('.checklist-item')[0].innerText
+        }
+        `
+    });
 
-    console.log(textContent);
+    var result = await page.evaluate('waifu()');
 
-    //await page.addScriptTag({#classic > div.window-overlay > div > div > div > div.window-main-col > div.checklist-list.window-module.js-checklist-list.js-no-higher-edits > div});
+    console.log(result)
 
-    //var box = await page.evaluate(`getChecked()`);
 
     await page.click('#classic > div.window-overlay > div > div > a');
     //
